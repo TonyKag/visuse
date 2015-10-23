@@ -5,8 +5,10 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
 public class Window extends javax.swing.JFrame {
@@ -19,6 +21,8 @@ public class Window extends javax.swing.JFrame {
 	public static Font largeFont;
 	public static Font mediumFont;
 	public static boolean ov = true;
+	public static String rBtn1Label;
+	public static String rBtn2Label;
 	public static Font smallFont;
 	private static int btn1PosX;
 	private static int btn1PosY;
@@ -36,13 +40,24 @@ public class Window extends javax.swing.JFrame {
 	private static int framePosY;
 	private static int frameSizeX;
 	private static int frameSizeY;
+	private static int rBtn1PosX;
+	private static int rBtn1PosY;
+	private static int rBtn1SizeX;
+	private static int rBtn1SizeY;
+	private static int rBtn2PosX;
+	private static int rBtn2PosY;
+	private static int rBtn2SizeX;
+	private static int rBtn2SizeY;
 	private static int textField1PosX;
 	private static int textField1PosY;
 	private static int textField1SizeX;
 	private static int textField1SizeY;
+	static ButtonGroup bg1;
 	static JButton btn1;
 	static JButton btn2;
 	static JButton btn3;
+	static JRadioButton rBtn1;
+	static JRadioButton rBtn2;
 	static JTextField textField1;
 
 	public static boolean isOv() {
@@ -90,6 +105,19 @@ public class Window extends javax.swing.JFrame {
 		btn1Label = "button1";
 		btn2Label = "button2";
 		btn3Label = "button3";
+
+		rBtn1Label = "Text";
+		rBtn2Label = "File";
+
+		rBtn1PosX = 670;
+		rBtn1PosY = 15;
+		rBtn1SizeX = 50;
+		rBtn1SizeY = 20;
+
+		rBtn2PosX = 720;
+		rBtn2PosY = 15;
+		rBtn2SizeX = 50;
+		rBtn2SizeY = 20;
 
 		/* window name */
 		JFrame w = new JFrame(frameLabel);
@@ -158,5 +186,22 @@ public class Window extends javax.swing.JFrame {
 		w.setLayout(null);
 		textField1.setVisible(true);
 		w.add(textField1).setBounds(textField1PosX, textField1PosY, textField1SizeX, textField1SizeY);
+
+		rBtn1 = new JRadioButton(rBtn1Label);
+		rBtn1.setFont(mediumFont);
+		rBtn1.setVisible(true);
+		w.add(rBtn1).setBounds(rBtn1PosX, rBtn1PosY, rBtn1SizeX, rBtn1SizeY);
+
+		rBtn2 = new JRadioButton(rBtn1Label);
+		rBtn2.setFont(mediumFont);
+		rBtn2.setVisible(true);
+		w.add(rBtn2).setBounds(rBtn2PosX, rBtn2PosY, rBtn2SizeX, rBtn2SizeY);
+
+		bg1 = new ButtonGroup();
+		bg1.add(rBtn1);
+		bg1.add(rBtn2);
+
+		setVisible(true);
+
 	}
 }
